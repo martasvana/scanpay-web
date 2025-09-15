@@ -5,6 +5,21 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Smooth scroll function with navigation offset
+const smoothScrollTo = (elementId: string) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    const navHeight = 100; // Account for navigation height + some padding
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - navHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
+
 const subscriptionServices = [
   "Netflix",
   "Spotify",
@@ -35,7 +50,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full py-24 mt-14 relative overflow-hidden">
+    <div className="w-full py-12 md:py-24 mt-14 relative overflow-hidden">
       {/* Floating Spotify Card */}
       {/* <motion.div 
         className={`absolute -rotate-6 top-[20%] left-[14%] bg-white p-3 rounded-lg shadow-lg transition-all duration-1000 ease-out ${
@@ -168,9 +183,9 @@ const Hero = () => {
       </motion.div> */}
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 mt-8 text-center">
+      <div className="container mx-auto px-4 mt-4 md:mt-8 text-center">
         <h1 
-          className={`text-6xl font-bold mb-6 transition-all duration-700 ease-out ${
+          className={`text-3xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight transition-all duration-700 ease-out ${
             isLoaded ? "opacity-100 transform-none" : "opacity-0 -translate-y-8"
           }`}
         >
@@ -189,7 +204,7 @@ const Hero = () => {
           >peníze.</span> */}
         </h1>
         <p 
-          className={`text-xl text-gray-600 max-w-3xl mx-auto mb-10 transition-all duration-1000 ease-out ${
+          className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 md:mb-10 px-2 transition-all duration-1000 ease-out ${
             isLoaded ? "opacity-100 transform-none" : "opacity-0 -translate-y-4"
           }`}
           style={{ transitionDelay: "400ms" }}
@@ -216,25 +231,26 @@ const Hero = () => {
         </p>
 
         <div 
-          className={`flex items-center justify-center gap-4 mb-8 transition-all duration-1000 ease-out ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 md:mb-8 px-4 transition-all duration-1000 ease-out ${
             isLoaded ? "opacity-100 transform-none" : "opacity-0 translate-y-8"
           }`}
           style={{ transitionDelay: "700ms" }}
         >
-          <Link 
-            href="#kalkulacka" 
-            className={`px-6 py-3 text-black bg-white border-purple-400 border-4 rounded-full hover:bg-gray-50 flex items-center transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 ${
+          <button 
+            onClick={() => smoothScrollTo('kalkulacka')}
+            className={`w-full sm:w-auto px-6 py-3 text-sm md:text-base text-black bg-white border-purple-400 border-4 rounded-full hover:bg-gray-50 flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 ${
               isLoaded ? "animate-fade-in" : ""
             }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
-            Spočítat kolik ušetřím
-          </Link>
+            <span className="md:hidden">Kolik ušetřím?</span>
+            <span className="hidden md:inline">Spočítat kolik ušetřím</span>
+          </button>
           <Link
             href="/signin"
-            className={`px-6 py-3 text-sm font-medium text-white bg-gradient-to-r border-purple-200 border-4 from-purple-500 to-violet-500 rounded-full hover:from-purple-600 hover:to-violet-600 flex items-center gap-2 transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 ${
+            className={`w-full sm:w-auto px-6 py-3 text-sm font-medium text-white bg-gradient-to-r border-purple-200 border-4 from-purple-500 to-violet-500 rounded-full hover:from-purple-600 hover:to-violet-600 flex items-center justify-center gap-2 transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 ${
               isLoaded ? "animate-fade-in" : ""
             }`}
             style={{ transitionDelay: "100ms" }}
@@ -281,7 +297,7 @@ const Hero = () => {
               ))}
             </div>
             <span 
-              className={`ml-2 text-sm font-medium text-gray-600 transition-all duration-1000 ease-out ${
+              className={`ml-2 text-xs md:text-sm font-medium text-gray-600 transition-all duration-1000 ease-out ${
                 isLoaded ? "opacity-100 transform-none" : "opacity-0 translate-x-4"
               }`}
               style={{ transitionDelay: "1500ms" }}

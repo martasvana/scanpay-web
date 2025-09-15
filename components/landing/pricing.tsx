@@ -122,7 +122,7 @@ export const Pricing = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-purple-600 text-white py-4 rounded-xl font-semibold text-lg hover:bg-purple-700 transition-colors duration-300"
+                className="w-full bg-purple-600 text-white py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-purple-700 transition-colors duration-300"
               >
                 Vyzkoušet na měsíc zdarma
               </motion.button>
@@ -130,7 +130,7 @@ export const Pricing = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full border-2 border-purple-600 text-purple-600 py-4 rounded-xl font-semibold text-lg hover:bg-purple-50 transition-colors duration-300"
+                className="w-full border-2 border-purple-600 text-purple-600 py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-purple-50 transition-colors duration-300"
               >
                 Kontaktovat podporu
               </motion.button>
