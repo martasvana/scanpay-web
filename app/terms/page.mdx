@@ -1,0 +1,140 @@
+import TermsWrapper from './terms-wrapper';
+
+export const metadata = {
+  title: 'Terms of Service | Unrenewed',
+  description: 'Read the terms and conditions governing your use of the Unrenewed subscription tracking service.'
+};
+
+<TermsWrapper>
+
+# Všeobecné obchodní podmínky (Terms of Service) — Scanpay.cz
+
+**Poslední aktualizace:** 13. září 2025
+
+Tyto Všeobecné obchodní podmínky (dále jen „Podmínky“) upravují poskytování softwarové služby **Scanpay.cz** (dále jen „Služba“ nebo „Scanpay“) mezi provozovatelem služby (dále jen „Poskytovatel“) a registrovanými zákazníky — provozovnami, bary, restauracemi, kavárnami, fitness centry a jinými obdobnými obchodními subjekty (dále jen „Zákazník“, „Merchant“ nebo „Uživatel“).  
+
+
+**Poskytovatel:** Martin Váňa<br></br>
+**Sídlo / adresa:** [adresa]  <br></br>
+**IČ:** 19798610<br></br>
+**DIČ:** - <br></br>
+**E-mail pro kontakty:** podpora@scanpay.cz<br></br>
+**Web:** https://scanpay.cz<br></br>
+
+---
+
+## 1. Definice
+- **Služba**: mobilní aplikace/služba Scanpay.cz určená výhradně pro Merchants, která umožňuje vytvářet dynamické QR kódy ve formátu „QR Platba“ pro jednotlivé transakce a sledovat stav příchozích plateb.
+- **QR Platba**: platební QR kód v souladu s českým standardem používaný zákazníkovými bankami pro zadání platby.
+- **Salt Edge**: externí AISP poskytovatel integrovaný přes Salt Edge Connect, který zprostředkovává přístup ke bankovním údajům pro účely monitorování příchozích transakcí a zasílání webhooků.
+- **Webhook**: notifikace o příchozích transakcích zasílaná Salt Edge (nebo bankou) na backend Scanpay za účelem potvrzení platby.
+- **variabilní Symbol (X-VS)**: jedinečný 10-místný variabilní symbol generovaný pro každou transakci, používaný pro párování příchozí platby s daným QR kódem.
+
+---
+
+## 2. Předmět smlouvy
+Poskytovatel poskytuje Zákazníkovi přístup k Službě umožňující:
+- generovat dynamické QR Platba kódy (jednoznačné pro každou transakci),
+- monitorovat příchozí platby na bankovní účet Zákazníka (přes Salt Edge AISP),
+- zobrazovat historii transakcí a stav „paid / unpaid“ pro účely rekonsiliace.
+
+Služba **neprovádí iniciaci plateb** ani nezadržuje finanční prostředky. Všechny platby probíhají mezi zákazníkovým zákazníkem a bankovním účtem Zákazníka.
+
+---
+
+## 3. Registrace a přístup k bankovnímu účtu
+1. Zákazník si zřizuje účet ve Službě a poskytuje kontaktní a fakturační údaje dle registračního formuláře.  
+2. Pro funkčnost monitoringu příchozích plateb je nutné, aby Zákazník **propojil svůj bankovní účet** přes Salt Edge Connect. Salt Edge zabezpečuje uložení přihlašovacích údajů a poskytuje autorizovaný přístup dle PSD2/AISP.  
+3. Při připojení bankovního účtu souhlasí Zákazník s tím, že Salt Edge bude poskytovat Poskytovateli pouze nezbytná data o příchozích transakcích (metadata: částka, měna, datum/čas, variabilní symbol, pokud je bankou poskytnut — a případně jméno plátce / číslo účtu plátce).  
+4. Zákazník prohlašuje a zaručuje, že má právo připojit daný bankovní účet a že jeho připojení neporušuje práva třetích stran.
+
+---
+
+## 4. Poplatky a fakturace
+1. Poskytovatel poskytuje Službu na základě předplatného (měsíční/roční) dle aktuálního ceníku, který je zveřejněn na webu nebo specifikován ve smlouvě. (Cena může být např. ~200 CZK/venue/měsíc — upřesnit dle obchodního rozhodnutí.)  
+2. Úhrada předplatného probíhá způsobem sjednaným při registraci (platební karta, bankovní převod, inkaso nebo jinak dohodnuto).  
+3. Poskytovatel si vyhrazuje právo změnit ceny; o změně bude Zákazník informován s dostatečným předstihem (min. 30 dnů). Zákazník může nevyhovující změnu považovat za důvod k ukončení služby před platností nové ceny.  
+4. V případě prodlení s platbou si Poskytovatel vyhrazuje právo omezit nebo pozastavit přístup ke Službě do doby uhrazení pohledávky.
+
+---
+
+## 5. Funkčnost QR kódů a potvrzování plateb
+1. QR kódy jsou generovány serverovou logikou Poskytovatele a obsahují jedinečný variabilní symbol X-VS pro každou transakci; tím se minimalizuje riziko zneužití nebo opakovaného použití.  
+2. Po provedení platby zákazníkem se Služba spoléhá na notifikace (webhooky) z Salt Edge a banky pro potvrzení přijetí platby. V případě, že webhook není doručen, Služba použije fallback polling k periodickému dotazování bankovního rozhraní prostřednictvím Salt Edge.  
+3. **Poskytovatel nezaručuje okamžité potvrzení platby** v každém případě. Rychlost potvrzení závisí na chování konkrétní banky a na infrastruktuře Salt Edge. O případných prodleních nebo nedoručení webhooků bude Zákazník informován v rámci provozních protokolů.  
+4. Po potvrzení platby Služba označí příslušný QR kód jako „paid“ a zamezí jeho opětovnému použití.
+
+---
+
+## 6. Role Salt Edge a další třetí zpracovatelé
+1. Zákazník bere na vědomí, že Salt Edge je samostatný procesor dat a že Salt Edge zpracovává bankovní přihlašovací údaje a poskytuje Poskytovateli výhradně bankovní transakční metadata nezbytná pro rekonsiliaci. Salt Edge má vlastní [obchodní podmínky](https://www.saltedge.com/legal/terms_of_service) a [zásady ochrany osobních údajů](https://www.saltedge.com/legal/privacy_policy).  
+2. Poskytovatel má uzavřené smlouvy o zpracování osobních údajů (DPA) se všemi subdodavateli, kteří přistupují k osobním údajům v rámci poskytování Služby (hosting, monitoring, emailing atd.).  
+3. Poskytovatel neprodává bankovní ani transakční data třetím osobám.
+
+---
+
+## 7. Povinnosti a zodpovědnost Zákazníka
+1. Zákazník je povinen poskytovat pravdivé a úplné informace při registraci a aktualizovat je v případě změn.  
+2. Zákazník odpovídá za bezpečné používání svých přihlašovacích údajů k účtu ve Službě a za oprávněné použití bankovních přístupů přes Salt Edge.  
+3. Zákazník nese odpovědnost za správné přiřazení částek / variabilních symbolů v interním procesu obsluhy (v případě chyby obsluhy může dojít k chybné rekonsiliaci).  
+4. Zákazník je odpovědný za dodržování veškerých právních povinností (fakturace, DPH, účetnictví apod.) souvisejících s příjmy na svém bankovním účtu.
+
+---
+
+## 8. Omezení odpovědnosti
+1. Poskytovatel neodpovídá za škody vzniklé v důsledku přerušení nebo chyb ve fungování bankovních API, chyb Salt Edge nebo jiné infrastruktury třetích stran.  
+2. Poskytovatel nevyvíjí platební iniciace; tedy nezodpovídá za platby neuskutečněné z důvodu chyby zákazníkovy banky nebo chyby plátce.  
+3. Celková odpovědnost Poskytovatele za přímou škodu způsobenou Zákazníkovi vyplývající z této smlouvy je omezena souhrnnou částkou rovnající se částce zaplacené Zákazníkem za Službu za posledních 12 měsíců (pokud právní systém neukládá odpovědnost vyšší). Poskytovatel neodpovídá za nepřímé škody, ušlý zisk nebo jiné následné škody.  
+4. Výše uvedená omezení se nevztahují na odpovědnost za škody způsobené úmyslně nebo hrubou nedbalostí, ani na jiné případy, kde to zákon vylučuje.
+
+---
+
+## 9. Ochrana osobních údajů
+1. Zpracování osobních údajů provádí Poskytovatel v souladu s platnými právními předpisy o ochraně osobních údajů (včetně GDPR). Podrobné informace o zpracování naleznete v naší **Zásadě ochrany osobních údajů (Privacy Policy)**, která je dostupná na webu nebo v aplikaci.  
+2. Zákazník tímto potvrzuje, že byl seznámen s tímto zpracováním a se způsobem, jakým Salt Edge přistupuje k bankovním údajům.
+
+---
+
+## 10. Ukončení a pozastavení služby
+1. Zákazník může ukončit Službu dle pravidel uvedených v ceníku / smlouvě (např. výpovědní lhůta).  
+2. Poskytovatel může pozastavit nebo ukončit poskytování Služby, zejména v případech porušení těchto Podmínek, nezaplacení pohledávek, zneužití služby nebo na základě právních/bezpečnostních důvodů. Před ukončením se Poskytovatel pokusí upozornit Zákazníka a umožnit nápravu, pokud to provozní situace dovolí.  
+3. Po ukončení služby budou data Zákazníka zpracována a uložena v souladu s politikou uchovávání dat (viz sekce o ochraně osobních údajů); Zákazník může požádat o vymazání dat v souladu s právními požadavky.
+
+---
+
+## 11. Změny Podmínek
+1. Poskytovatel si vyhrazuje právo měnit tyto Podmínky. O změnách bude Zákazník informován předem (min. 30 dnů), pokud změna není technicky nebo zákonně nezbytná okamžitě.  
+2. Pokud Zákazník se změnou nesouhlasí, může do data účinnosti změny Službu ukončit. Pokud Zákazník po datu účinnosti nadále Službu používá, považuje se to za souhlas s novými Podmínkami.
+
+---
+
+## 12. Duševní vlastnictví
+Veškeré práva duševního vlastnictví ke Službě, včetně zdrojového kódu, designu, obchodního názvu a dokumentace, náleží Poskytovateli nebo jeho licencorům. Zákazník získává nevýhradní, nepřenosné právo užívat Službu v rozsahu sjednaném těmito Podmínkami.
+
+---
+
+## 13. Odstoupení od smlouvy (spotřebitelé)
+Služba je určena primárně pro podnikatelé a obchodní subjekty. Pokud by přesto daný Zákazník byl spotřebitelem, upravují se práva spotřebitele dle příslušných ustanovení občanského zákoníku a zákona o ochraně spotřebitele. (Doporučené specifikovat, zda a jaký zákon se vztahuje.)
+
+---
+
+## 14. Řešení sporů a rozhodné právo
+1. Tyto Podmínky se řídí právem České republiky.  
+2. Veškeré spory vzniklé v souvislosti s těmito Podmínkami se budou řešit přednostně smírně. Pokud nebude dohoda možná, je příslušný soud v České republice dle sídla Poskytovatele.
+
+---
+
+## 15. Závěrečná ustanovení
+1. Pokud je některé ustanovení těchto Podmínek neplatné nebo neúčinné, nemá to vliv na platnost ostatních ustanovení. Neplatné ustanovení bude nahrazeno ustanovením, které je nejbližší ekonomickému smyslu původního ustanovení.  
+2. Tyto Podmínky představují úplnou dohodu mezi Poskytovatelem a Zákazníkem ve vztahu k Službě a nahrazují veškeré předchozí dohody.
+
+---
+
+## 16. Kontakty
+Pro veškeré dotazy týkající se těchto Podmínek, účtu nebo Služby kontaktujte:  
+**E-mail:** podpora@scanpay.cz (upravit)  
+**Pošta:** [adresa Poskytovatele] (upravit)
+
+---
+
+</TermsWrapper>

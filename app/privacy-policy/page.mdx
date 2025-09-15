@@ -1,0 +1,213 @@
+import PrivacyPolicyWrapper from './privacy-policy-wrapper';
+
+export const metadata = {
+  title: 'Zásady ochrany osobních údajů | Scanpay',
+  description: 'Zjistěte, jak Scanpay shromažďuje, používá, ukládá a chrání vaše osobní a finanční údaje.'
+};
+
+<PrivacyPolicyWrapper>
+
+# Scanpay.cz — Zásady ochrany osobních údajů
+
+**Naposledy aktualizováno:** 13. září 2025
+
+Tyto Zásady ochrany osobních údajů vysvětlují, jak **Scanpay.cz** („Služba", „my", „nás" nebo „Scanpay") shromažďuje, používá, sdílí a chrání osobní údaje při poskytování naší mobilní aplikace určené výhradně pro obchodníky, která generuje dynamické české **QR Platba** kódy pro obchodníky (bary, restaurace, kavárny, fitness centra a podobná zařízení). Scanpay je technický poskytovatel služeb, který využívá AISP infrastrukturu Salt Edge k monitorování příchozích plateb a potvrzování transakcí.
+
+Pokud máte dotazy k těmto zásadám nebo si chcete uplatnit svá práva týkající se údajů, kontaktujte nás na **podpora@scanpay.cz** nebo na naší registrované obchodní adrese (nahraďte svou právní adresou a IČ/DIČ).
+
+---
+
+## 1. Kontaktní informace
+
+**Kontaktní údaje:**  
+Scanpay.cz<br></br>
+Jméno FO: Martin Váňa<br></br>
+IČ: 19798610<br></br>
+DIČ: -<br></br>
+Sídlo: -<br></br>
+
+**Podpora:**  
+Email: **podpora@scanpay.cz** <br></br>
+Poštovní adresa: -
+
+---
+
+## 2. Rozsah a účel — stručné shrnutí
+
+Scanpay je **aplikace pouze pro obchodníky**, kterou používá personál provozoven k vytváření dynamických platebních QR kódů (formát QR Platba). Zákazníci platí prostřednictvím svých vlastních bankovních aplikací. **Neuchovávame** prostředky zákazníků. Používáme Salt Edge AISP (prostřednictvím Salt Edge Connect) k detekci příchozích plateb na bankovní účty obchodníků a k odsouhlasení/potvrzování plateb pro obchodníka.
+
+Zpracováváme pouze údaje nezbytně nutné pro tuto základní funkcionalitu (metadata příchozích transakcí pro odsouhlasení a zobrazení stavu). Nesdílíme bankovní údaje obchodníků s třetími stranami, kromě případů nezbytných pro poskytování služby (viz sekce 6).
+
+---
+
+## 3. Údaje, které shromažďujeme a zpracováváme
+
+### A. Údaje získané prostřednictvím Salt Edge / Bankovního připojení
+Když obchodník připojí svůj bankovní účet prostřednictvím widgetu Salt Edge Connect, mohou být přístupné a zpracovávané následující typy údajů (pouze dle potřeby):
+
+- **Identifikátory bankovního účtu obchodníka**: IBAN (nebo domácí číslo účtu) a jméno majitele účtu.  
+- **Metadata příchozích transakcí**: částka transakce, měna, časové razítko, ID transakce, číslo účtu plátce (je-li poskytováno bankou), platební reference / variabilní symbol (X-VS), informace o převodu (textová reference) a jakékoli jméno plátce poskytované bankou pro transakci.  
+- **Minimální historie transakcí**: nezbytná pro odsouhlasení QR kódů a zobrazení historie obchodníka.
+
+**Poznámka:** Požadujeme a zpracováváme pouze minimální transakční údaje potřebné k potvrzení plateb a provedení odsouhlasení.
+
+### B. Údaje poskytované během onboardingu a správy účtu
+- Kontaktní údaje obchodníka (název společnosti/majitele, email, telefonní číslo, fakturační adresa).  
+- Autentizační údaje pro váš Scanpay účet (neukládáme bankovní přihlašovací údaje; Salt Edge spravuje bankovní přihlašovací údaje a tokeny).
+
+### C. Technické údaje a údaje o používání
+- Informace o zařízení, logy aplikace (s redigovaným nebo vyloučeným citlivým obsahem), časová razítka akcí (např. generování QR), a stav doručení webhooků pro provozní/ladicí účely.
+
+---
+
+## 4. Právní základ pro zpracování
+
+- **Plnění smlouvy / smluvní nutnost**: Zpracováváme údaje obchodního účtu a metadata transakcí k poskytování základní služby — generování QR kódů, monitorování příchozích plateb a jejich odsouhlasení. Toto zpracování je nezbytné pro plnění smlouvy s našimi obchodními zákazníky.  
+- **Oprávněné zájmy**: Pro prevenci podvodů, řešení problémů, zlepšování služby a poskytování zákaznické podpory (vyváženo s právy a svobodami obchodníků).  
+- **Souhlas**: Kde je potřeba (např. jakákoli volitelná analytika nebo marketingová komunikace), požádáme o výslovný souhlas.
+
+Obchodníci dávají souhlas k přístupu k informacím o transakcích na jejich účtu připojením svého bankovního účtu prostřednictvím Salt Edge Connect procesu. Salt Edge zobrazí rozsah přístupu k údajům během připojování.
+
+---
+
+## 5. Jak používáme vaše údaje
+
+Údaje používáme k:
+
+- Generování dynamických QR Platba kódů (generování na straně serveru zajišťuje integritu).  
+- Detekci a potvrzování příchozích plateb na připojený bankovní účet obchodníka (prostřednictvím Salt Edge AISP webhooků a záložního dotazování).  
+- odsouhlasení plateb ke konkrétním transakcím pomocí variabilního symbolu (X-VS) a prezentaci stavu „zaplaceno/nezaplaceno" a úplného seznamu transakcí (v rámci úrovní oprávnění).  
+- Poskytování reportů, historie transakcí (uchováváno až 12 měsíců) a fakturace pro naše SaaS předplatné.  
+- Prevenci, detekci a vyšetřování podvodů nebo zneužití.  
+- Odpovídání na žádosti o podporu a spory.  
+- Vedení logů, monitorování zdraví služby a dodržování právních povinností.
+
+---
+
+## 6. Třetí strany a sdílení údajů
+
+- **Salt Edge** (poskytovatel AISP / zpracovatel údajů): Používáme Salt Edge Connect k usnadnění bankovních připojení obchodníků a k přijímání webhooků příchozích transakcí. Salt Edge spravuje bankovní přihlašovací údaje a tokeny; na zpracování bankovních přihlašovacích údajů a bankovních údajů se vztahuje Smlouva o zpracování údajů Salt Edge a postupy ochrany soukromí.  
+- **Poskytovatelé služeb**: Hosting, protokolování, monitorování a další dodavatelé infrastruktury (působící jako zpracovatelé). Tito dodavatelé jsou smluvně povinni udržovat údaje v bezpečí a zpracovávat je pouze podle našich pokynů.  
+- **Právní / regulatorní**: Můžeme zveřejnit údaje pro dodržení právních povinností (soud, regulátor, donucovací orgány), je-li to požadováno.
+
+**NEPRODÁVÁME ani nesdílíme bankovní údaje obchodníků s inzerenty nebo nesouvisejícími třetími stranami.**
+
+---
+
+## 7. Doba uchovávání
+
+- **Transakční údaje / historie odsouhlasení:** uchovávány po dobu **12 měsíců** od data transakce, aby obchodníci mohli zobrazit historii transakcí a pro odsouhlasení.  
+- **Údaje o účtu a fakturaci:** uchovávány po dobu, kdy je obchodní účet aktivní, a podle potřeby k splnění právních povinností (např. účetní požadavky) — obvykle déle než 12 měsíců, kde to vyžaduje zákon.  
+- **Logy a technická diagnostika:** omezená doba uchovávání; citlivé údaje jsou vyloučeny. Doby uchovávání jsou minimalizovány podle provozních potřeb.
+
+Obchodníci mohou požádat o smazání svých údajů; viz sekce 11 (Práva subjektu údajů). Žádosti o smazání podléhají jakýmkoli právním nebo smluvním povinnostem uchovávání.
+
+---
+
+## 8. Bezpečnost
+
+Implementujeme vhodná technická a organizační opatření k ochraně osobních údajů, včetně:
+
+- Šifrování při přenosu (TLS) a šifrování v klidu pro citlivé údaje uložené na našich serverech.  
+- Salt Edge spravuje bankovní přihlašovací údaje a tokeny; neukládáme přihlašovací údaje v nezašifrované podobě.  
+- Řízení přístupu založené na rolích; princip nejmenších oprávnění pro interní personál.  
+- Redigování/vyhýbání se citlivým údajům v logách a přísné zásady protokolování.  
+- Pravidelné bezpečnostní kontroly a aktualizace; procesy reakce na incidenty jsou zavedeny.  
+- Smlouvy o zpracování údajů (DPA) s externími zpracovateli.
+
+V případě narušení osobních údajů ovlivňujícího riziko údajů budeme následovat právní povinnosti pro oznámení narušení, včetně hlášení dozorčím orgánům, kde je to požadováno.
+
+---
+
+## 9. Webhooky, spolehlivost a omezení
+
+- Primárně spoléháme na Salt Edge AISP webhooky k přijímání oznámení o příchozích platbách téměř v reálném čase. Rychlost doručování a dostupnost Salt Edge závisí na API připojené banky a jejím chování. Zatímco mnoho českých bank poskytuje téměř okamžitá oznámení, **Scanpay nezaručuje 100% okamžité potvrzení**.  
+- Udržujeme mechanismus **záložního dotazování** pro kontrolu transakcí, pokud webhooky selžou nebo jsou zpožděny. To snižuje zmeškaná potvrzení, ale nemůže úplně eliminovat zpoždění způsobená systémy bank třetích stran.  
+- Pokud je webhook zpožděn nebo platba není automaticky potvrzena, obchodníci mohou stále ručně potvrdit platbu prostřednictvím bankovního dokladu zákazníka. Tato ruční možnost a záložní dotazování budou popsány v našich Podmínkách služby; vylučujeme odpovědnost za zpoždění způsobená API bank třetích stran nebo omezeními systému Salt Edge.
+
+---
+
+## 10. Prevence podvodů a anti-abuse
+
+- Dynamické QR kódy jsou generovány na straně serveru a zahrnují jedinečný 10místný variabilní symbol (X-VS) na transakci k zabránění hádání nebo opětovnému použití.  
+- QR kódy jsou zneplatněny, jakmile jsou označeny jako „zaplacené".  
+- Monitorujeme podezřelé vzory (např. opakované neúspěšné webhooky, opakované neplatné variabilní symboly) a můžeme pozastavit účty podléhající vyšetřování.
+
+---
+
+## 11. Práva subjektu údajů
+
+Podle příslušných zákonů o ochraně údajů (včetně EU GDPR) můžete mít následující práva týkající se osobních údajů, které držíme:
+
+- **Přístup** — požádat o kopii vašich osobních údajů.  
+- **Oprava** — požádat o opravu nepřesných nebo neúplných údajů.  
+- **Výmaz („právo být zapomenut")** — požádat o smazání vašich osobních údajů, s výhradou právních/smluvních povinností uchovávání.  
+- **Omezení zpracování** — požádat o dočasné zastavení zpracování za určitých okolností.  
+- **Přenositelnost údajů** — obdržet kopii vašich osobních údajů ve strojově čitelném formátu, kde je to použitelné.  
+- **Námitka** — vznést námitku proti zpracování založenému na oprávněných zájmech; přestaneme, pokud nemáme přesvědčivé oprávněné důvody.  
+- **Odvolání souhlasu** — kde je zpracování založeno na souhlasu, můžete souhlas odvolat (to neovlivní zpracování již zákonně provedené).
+
+K uplatnění jakéhokoli z výše uvedených práv nás kontaktujte na **podpora@scanpay.cz**. Odpovíme bez zbytečného odkladu a v souladu s právními termíny.
+
+Pokud nejste spokojeni s naší odpovědí, máte právo podat stížnost u Úřadu pro ochranu osobních údajů (**Úřad pro ochranu osobních údajů**).
+
+---
+
+## 12. Mezinárodní převody
+
+Salt Edge a naši zpracovatelé působí primárně v rámci EHP a UK. Pokud jsou jakékoli osobní údaje převedeny mimo EHP/UK, zajistíme přiměřenou úroveň ochrany prostřednictvím vhodných záruk, jako jsou:
+
+- Převody do zemí s rozhodnutím EU o přiměřenosti; nebo  
+- Standardní smluvní doložky (SCC) a dodatečné technické/organizační záruky.
+
+---
+
+## 13. Nezletilí
+
+Scanpay je určen pro obchodní zákazníky (obchodníky). Vědomě neshromažďujeme ani nezpracováváme osobní údaje dětí pro spotřebitelské služby. Pokud věříte, že jsme shromáždili údaje nezletilého, kontaktujte nás a požádejte o odstranění.
+
+---
+
+## 14. Soubory cookie a sledování (webové stránky)
+
+Naše webové stránky (pokud existují) mohou používat soubory cookie a podobné technologie pro základní funkcionalitu, analytiku a výkon. Poskytneme vhodný souhlas se soubory cookie a informace o jakémkoli používání souborů cookie na webových stránkách.
+
+---
+
+## 15. Změny těchto zásad
+
+Můžeme aktualizovat tyto Zásady ochrany osobních údajů, aby odrážely změny v našich postupech nebo právních povinnostech. O podstatných změnách budeme obchodníky informovat e-mailem nebo prostřednictvím aplikace a aktualizujeme datum „Naposledy aktualizováno" nahoře.
+
+---
+
+## 16. Dodatečné informace Salt Edge a třetí strany
+
+Při připojování bankovních účtů obchodníků Salt Edge představí rozsah údajů, které budou sdíleny, a získá souhlas obchodníka. Salt Edge působí jako strana umožňující přístup k údajům pocházejícím z banky; platí také [zásady ochrany soukromí](https://www.saltedge.com/legal/privacy_policy) a [podmínky](https://www.saltedge.com/legal/terms_of_service) Salt Edge. Doporučujeme obchodníkům, aby si spolu s těmito zásadami prostudovali dokumentaci ochrany soukromí Salt Edge.
+
+---
+
+## 17. Zřeknutí se odpovědnosti a odpovědnost týkající se načasování potvrzení
+
+Protože Scanpay spoléhá na Salt Edge a API připojených bank pro oznámení příchozích plateb:
+
+- **Nezaručujeme** okamžité potvrzení pro každou platbu; rychlost potvrzení závisí na bance a Salt Edge.  
+- Implementujeme záložní dotazování ke snížení zmeškaných potvrzení, ale některá zpoždění se stále mohou vyskytnout.  
+- Obchodníci jsou schopni ručně potvrdit platby s bankovními doklady poskytnutými zákazníkem. Scanpay není odpovědný za zpoždění nebo selhání při potvrzování plateb způsobená API bank třetích stran nebo systémy Salt Edge mimo naši přímou kontrolu.
+
+Tato omezená odpovědnost bude uvedena v našich Podmínkách služby.
+
+---
+
+## 18. Jak nás kontaktovat
+
+Pokud máte dotazy k těmto zásadám, vašim údajům nebo si chcete uplatnit svá práva:
+
+- Email: **podpora@scanpay.cz**   
+- Poštovní: (vaše obchodní adresa)  
+- Pověřenec pro ochranu osobních údajů / Kontaktní osoba: Martin Váňa
+
+---
+
+**Konec Zásad ochrany osobních údajů**
+
+</PrivacyPolicyWrapper>
