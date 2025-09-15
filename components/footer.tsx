@@ -247,6 +247,29 @@ const Footer = () => {
                            
             </div>
 
+            {/* reCAPTCHA disclaimer */}
+            <div className="text-center text-gray-400 text-xs">
+              Tato stránka je chráněna pomocí reCAPTCHA a platí{' '}
+              <a 
+                href="https://policies.google.com/privacy" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-purple-600 transition-colors underline"
+              >
+                Zásady ochrany soukromí
+              </a>
+              {' '}a{' '}
+              <a 
+                href="https://policies.google.com/terms" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-purple-600 transition-colors underline"
+              >
+                Smluvní podmínky
+              </a>
+              {' '}společnosti Google.
+            </div>
+
             {/* Copyright */}
             <div className="text-center text-gray-500 text-sm">
               © {new Date().getFullYear()} ScanPay.cz. Všechna práva vyhrazena.

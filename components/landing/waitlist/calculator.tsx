@@ -112,6 +112,54 @@ const SavingsCalculator = ({ isLoaded }: { isLoaded: boolean }) => {
   const [revenue, setRevenue] = useState<number>(100000);
   const [cardFeePercent, setCardFeePercent] = useState<number>(1.8);
   
+  // Store raw input values to allow empty states
+  const [revenueInput, setRevenueInput] = useState<string>('100000');
+  const [cardFeeInput, setCardFeeInput] = useState<string>('1.8');
+  
+  // Input validation functions
+  const handleRevenueChange = (value: string) => {
+    setRevenueInput(value);
+    
+    if (value === '') {
+      // Allow empty input for editing
+      return;
+    }
+    
+    const numValue = Number(value);
+    if (!isNaN(numValue) && numValue > 0) {
+      setRevenue(numValue);
+    }
+  };
+  
+  const handleCardFeeChange = (value: string) => {
+    setCardFeeInput(value);
+    
+    if (value === '') {
+      // Allow empty input for editing
+      return;
+    }
+    
+    const numValue = Number(value);
+    if (!isNaN(numValue) && numValue >= 0 && numValue <= 100) {
+      setCardFeePercent(numValue);
+    }
+  };
+  
+  // Handle blur events to ensure valid values when user finishes editing
+  const handleRevenueBlur = () => {
+    if (revenueInput === '' || Number(revenueInput) <= 0) {
+      setRevenueInput('100000');
+      setRevenue(100000);
+    }
+  };
+  
+  const handleCardFeeBlur = () => {
+    if (cardFeeInput === '' || Number(cardFeeInput) < 0 || Number(cardFeeInput) > 100) {
+      setCardFeeInput('1.8');
+      setCardFeePercent(1.8);
+    }
+  };
+  
   // Calculate annual values
   const annualRevenue = isAnnual ? revenue : revenue * 12;
   const monthlyRevenue = isAnnual ? revenue / 12 : revenue;
@@ -173,7 +221,9 @@ const SavingsCalculator = ({ isLoaded }: { isLoaded: boolean }) => {
                   onClick={() => {
                     if (isAnnual) {
                       // Converting from annual to monthly
-                      setRevenue(revenue / 12);
+                      const newMonthlyRevenue = Math.max(1, Math.round(revenue / 12));
+                      setRevenue(newMonthlyRevenue);
+                      setRevenueInput(newMonthlyRevenue.toString());
                     }
                     setIsAnnual(false);
                   }}
@@ -189,7 +239,9 @@ const SavingsCalculator = ({ isLoaded }: { isLoaded: boolean }) => {
                   onClick={() => {
                     if (!isAnnual) {
                       // Converting from monthly to annual
-                      setRevenue(revenue * 12);
+                      const newAnnualRevenue = Math.max(1, revenue * 12);
+                      setRevenue(newAnnualRevenue);
+                      setRevenueInput(newAnnualRevenue.toString());
                     }
                     setIsAnnual(true);
                   }}
@@ -212,10 +264,12 @@ const SavingsCalculator = ({ isLoaded }: { isLoaded: boolean }) => {
               <div className="relative">
                 <input
                   type="number"
-                  value={revenue}
-                  onChange={(e) => setRevenue(Number(e.target.value) || 0)}
+                  value={revenueInput}
+                  onChange={(e) => handleRevenueChange(e.target.value)}
+                  onBlur={handleRevenueBlur}
+                  min="1"
                   className="w-full px-4 py-3 pr-12 bg-white border border-gray-200 rounded-xl text-lg font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                  placeholder="0"
+                  placeholder="100000"
                 />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium pointer-events-none">
                   Kč
@@ -232,8 +286,11 @@ const SavingsCalculator = ({ isLoaded }: { isLoaded: boolean }) => {
                 <input
                   type="number"
                   step="0.1"
-                  value={cardFeePercent}
-                  onChange={(e) => setCardFeePercent(Number(e.target.value) || 0)}
+                  value={cardFeeInput}
+                  onChange={(e) => handleCardFeeChange(e.target.value)}
+                  onBlur={handleCardFeeBlur}
+                  min="0"
+                  max="100"
                   className="w-full px-4 py-3 pr-12 bg-white border border-gray-200 rounded-xl text-lg font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="1.8"
                 />

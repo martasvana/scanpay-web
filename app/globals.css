@@ -126,4 +126,9 @@ body {
   }
 }
 
+/* Hide Google reCAPTCHA badge */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
 
