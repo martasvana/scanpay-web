@@ -41,6 +41,12 @@ const Navigation = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-10">
+          <Link 
+            href="/connect-bank" 
+            className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
+          >
+            Připojit banku
+          </Link>
           <button 
             onClick={() => smoothScrollTo('kalkulacka')} 
             className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
@@ -126,6 +132,13 @@ const Navigation = () => {
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
         )}>
           <div className="flex flex-col p-4 space-y-4">
+            <Link 
+              href="/connect-bank"
+              onClick={() => setIsOpen(false)}
+              className="text-sm text-gray-600 hover:text-gray-900 py-2 text-left transition-colors duration-200"
+            >
+              Připojit banku
+            </Link>
             <button 
               onClick={() => { smoothScrollTo('kalkulacka'); setIsOpen(false); }} 
               className="text-sm text-gray-600 hover:text-gray-900 py-2 text-left transition-colors duration-200"
