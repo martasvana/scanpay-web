@@ -41,12 +41,7 @@ const Navigation = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-10">
-          <Link 
-            href="/connect-bank" 
-            className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
-          >
-            Připojit banku
-          </Link>
+          
           <button 
             onClick={() => smoothScrollTo('kalkulacka')} 
             className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
@@ -95,7 +90,7 @@ const Navigation = () => {
             Stáhnout aplikaci
           </Link>
           <Link 
-            href="/signup" 
+            href="/connect-bank" 
             className="px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-purple-600 rounded-full hover:from-purple-600 hover:to-purple-700 transition-colors flex items-center justify-center shadow-purple-200 border-4 border-purple-200"
           >
             Začněte šetřit
